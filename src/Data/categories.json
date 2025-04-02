@@ -1,0 +1,52 @@
+{
+  "Categorias": [
+    {
+      "id": 1,
+      "categoria": "Cocina",
+      "tipo": {
+        "nombre": "Gabinete",
+        "imagen": "/Mueble.svg"
+      }
+    },
+    {
+      "id": 2,
+      "categoria": "Salón",
+      "tipo": {
+        "nombre": "",
+        "imagen": ""
+      }
+    },
+    {
+      "id": 3,
+      "categoria": "Comedor",
+      "tipo": {
+        "nombre": "",
+        "imagen": ""
+      }
+    },
+    {
+      "id": 4,
+      "categoria": "Dormitorio",
+      "tipo": {
+        "nombre": "",
+        "imagen": ""
+      }
+    },
+    {
+      "id": 5,
+      "categoria": "Despacho",
+      "tipo": {
+        "nombre": "",
+        "imagen": ""
+      }
+    },
+    {
+      "id": 6,
+      "categoria": "Exterior",
+      "tipo": {
+        "nombre": "",
+        "imagen": ""
+      }
+    }
+  ]
+}
