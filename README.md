@@ -1,54 +1,27 @@
-# React + TypeScript + Vite
+# Prueba Técnica - Interfaz de Usuario
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Este proyecto es el resultado de la prueba técnica realizada por **Jesús Alexander Abad Sánchez Martínez**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+La funcionalidad implementada permite arrastrar un mueble al centro de la pantalla. Como característica adicional, se pueden modificar las barras de anchura y altura, aunque actualmente estos cambios no afectan el mueble, ya que es una imagen estática. A futuro, el mueble podría ser un elemento 3D para permitir modificaciones dinámicas, como ajustes de tamaño y cambio de materiales, afectando así el precio en tiempo real.
 
-## Expanding the ESLint configuration
+## Instalación y Ejecución
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Clonar el repositorio o descargar el archivo .zip.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+Navegar a la ubicación del proyecto en la terminal.
+
+Ejecutar los siguientes comandos:
+
+```sh
+npm install
+```
+y despues
+
+```sh
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Esto iniciará el entorno de desarrollo y permitirá visualizar la interfaz en el navegador.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
