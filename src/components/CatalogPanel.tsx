@@ -7,6 +7,43 @@ import {
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import categoriesData from "../Data/categories.json";
+import { useDrag } from 'react-dnd';
+
+// Componente para un elemento arrastrable
+const DraggableFurnitureItem = ({ tipo }) => {
+  const [{ isDragging }, drag] = useDrag(() => ({
+    type: 'FURNITURE',
+    item: { 
+      name: tipo.nombre, 
+      image: tipo.imagen,
+      width: 100,
+      height: 100,
+      depth: 50,
+      material: 'wood',
+      color: '#8B4513',
+      price: 199
+    },
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  }));
+
+  return (
+    <div 
+      ref={drag} 
+      className={`m-2 rounded p-2.5 bg-tertiary flex items-center gap-2 cursor-move ${
+        isDragging ? 'opacity-50' : 'opacity-100'
+      }`}
+    >
+      <img
+        src={tipo.imagen}
+        alt={tipo.nombre}
+        className="w-12 h-12 object-contain"
+      />
+      <p className="text-sm font-semibold">{tipo.nombre}</p>
+    </div>
+  );
+};
 
 const CatalogPanel = () => {
   const [openCategory, setOpenCategory] = useState<number | null>(null);
@@ -36,6 +73,7 @@ const CatalogPanel = () => {
           </div>
         </div>
       </div>
+      {/* Categorias de muebles */}
       <div className="space-y-0.5 mt-2.5">
         {categoriesData.Categorias.map((category) => (
           <div key={category.id} className="border-y border-separator">
@@ -51,20 +89,15 @@ const CatalogPanel = () => {
               />
             </div>
             {openCategory === category.id && (
-              <div className="m-2 rounded p-2.5 bg-tertiary flex items-center gap-2">
+              <>
                 {category.tipo.nombre ? (
-                  <>
-                    <img
-                      src={category.tipo.imagen}
-                      alt={category.tipo.nombre}
-                      className="w-12 h-12 object-contain"
-                    />
-                    <p className="text-sm font-semibold">{category.tipo.nombre}</p>
-                  </>
+                  <DraggableFurnitureItem tipo={category.tipo} />
                 ) : (
-                  <p className="text-sm text-quaternary">Sin muebles</p>
+                  <div className="m-2 rounded p-2.5 bg-tertiary">
+                    <p className="text-sm text-quaternary">Sin muebles</p>
+                  </div>
                 )}
-              </div>
+              </>
             )}
           </div>
         ))}
